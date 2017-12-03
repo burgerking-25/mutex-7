@@ -168,13 +168,7 @@ void high_isr(void) {
             }
         }
     }
-    /*if(PIR1bits.ADIF == 1){
-        PIR1bits.ADIF = 0;
-        result = ReadADC();   // Read result
-        voltage = ((result*5)/1023.0);
-        ADCON0bits.GO_DONE = 1; 
-        displayAdc();
-    }*/
+ 
 }
 
 /*****************High priority interrupt vector **************************/
@@ -214,7 +208,7 @@ void initLCD(void) {
     while (BusyXLCD());
 }
 
-//Run initLCD(); before running this 
+
 
 void prtStrLitLCD(int lineNum, rom const char * string) {
     if (lineNum == 1) {
@@ -245,7 +239,7 @@ void prtStrLitLCD(int lineNum, rom const char * string) {
     }
 }
 
-//Run initLCD(); before running this 
+
 
 void prtStrLCD(int lineNum, char * string) {
     if (lineNum == 1) {
@@ -423,13 +417,7 @@ void displayTemp(void)
     }
 }
 
-/*void displayAdc(){
-    int_part = (int)voltage ;
-    adcRlts = int_part;
-    decimal_part = (voltage - int_part) * 10;
-    sprintf(buffer,(far char*)"ADC: %i.%i", int_part, decimal_part);
-    prtStrLCD(3, buffer);
-}*/
+
 
 
 void restValues(){
